@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1> List of Course for a  Student </h1>
+
+<div class="jumbotron text-center" th:each="student : ${students}">
+    <h2 th:text="${student.name}"></h2>
+    <h4 th:inline="text"> with email [[${student.email}]] of [[${student.major}]] major </h4>
+    <ul>
+        <th:block th:each="course: ${courses}">
+            <li th:inline="text"> <strong>[[${course.name}]]</strong> with the code of [[${course.code}]].</li>
+
+        </th:block>
+    </ul>
+</div>
+
+<h2> list of Students for a course </h2>
+
+<div th:each="course: ${courses}">
+    <h2 th:text="${course.name}"></h2>
+    <h4 th:inline="text"> with code [[${course.code}]]</h4>
+    <ul>
+        <th:block th:each="student: ${students}">
+            <li th:inline="text"> <strong>[[${student.name}]]</strong> with email [[${student.email}]] and major [[${student.major}]] .</li>
+
+        </th:block>
+
+    </ul>
+
+
+
+
+</div>
+</body>
+</html>
