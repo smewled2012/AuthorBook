@@ -6,6 +6,7 @@ import java.util.Set;
 
 @Entity
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -15,10 +16,11 @@ public class Student {
     private String major;
     private int age;
 
-    @ManyToMany(mappedBy = "students")
+    @ManyToMany
     private Set<Course> courses;
 
     public Student() {
+
         courses=new HashSet<>();
     }
 
@@ -67,5 +69,9 @@ public class Student {
 
     public void setCourses(Set<Course> courses) {
         this.courses = courses;
+    }
+
+    public void addCourse(Course course){
+        courses.add(course);
     }
 }

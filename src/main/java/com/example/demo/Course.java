@@ -15,7 +15,7 @@ public class Course {
 
     private String code;
 
-    @ManyToMany
+    @ManyToMany()
     private Set<Student> students;
 
     public Course() {
@@ -53,4 +53,8 @@ public class Course {
     public void setStudents(Set<Student> students) {
         this.students = students;
     }
+    public void addStudent(Student student){
+        students.add(student);
+    }
+
 }

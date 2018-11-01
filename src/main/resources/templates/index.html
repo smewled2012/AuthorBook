@@ -21,7 +21,7 @@
     <h2 th:text="${student.name}"></h2>
     <h4 th:inline="text"> with email [[${student.email}]] of [[${student.major}]] major </h4>
     <ul>
-        <th:block th:each="course: ${courses}">
+        <th:block th:each="course: ${student.courses}">
             <li th:inline="text"> <strong>[[${course.name}]]</strong> with the code of [[${course.code}]].</li>
 
         </th:block>
@@ -34,15 +34,12 @@
     <h2 th:text="${course.name}"></h2>
     <h4 th:inline="text"> with code [[${course.code}]]</h4>
     <ul>
-        <th:block th:each="student: ${students}">
+        <th:block th:each="student: ${course.students}">
             <li th:inline="text"> <strong>[[${student.name}]]</strong> with email [[${student.email}]] and major [[${student.major}]] .</li>
 
         </th:block>
 
     </ul>
-
-
-
 
 </div>
 </body>
